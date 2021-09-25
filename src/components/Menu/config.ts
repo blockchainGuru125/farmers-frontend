@@ -16,11 +16,11 @@ const config: MenuEntry[] = [
     icon: 'TradeIcon',
     items: [
       {
-        label: 'Exchange',
+        label: 'Buy CORN',
         href: 'https://buy.farmersonly.farm', // XXXXCORN
       },
       {
-        label: 'Liquidity',
+        label: 'Add Liquidity',
         href: 'https://app.pangolin.exchange/#/add/0xFcA54c64BC44ce2E72d621B6Ed34981e53B66CaE/undefined', // XXXXCORN
       },
     ],
