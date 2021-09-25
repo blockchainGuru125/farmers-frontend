@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text } from '@pancakeswap-libs/uikit'
+import { Heading, Text, Button } from '@pancakeswap-libs/uikit'
 import Container from 'components/layout/Container'
 import useI18n from 'hooks/useI18n'
 import Timer from '../../Home/components/Timer'
@@ -8,6 +8,20 @@ import Timer from '../../Home/components/Timer'
 const Title = styled(Heading).attrs({ as: 'h1', size: 'xl' })`
   color: ${({ theme }) => "#FFFFFF"};
   margin-bottom: 15px;
+`
+
+const DepA = styled.a`
+  display: inline-block !important;
+  margin-left: 370px;
+`
+
+const DepButton = styled(Button)`
+  background-color: #FFFFFF;
+	color: #fb2141;
+  &:hover {
+	background-color: #fb2141;
+	color: #FFFFFF;
+  }
 `
 
 const Blurb = styled(Text)`
@@ -55,7 +69,9 @@ const Hero = ({tokenMode,dividendsMode}) => {
             TranslateString(999, 'Stake LP tokens to earn CORN')
           
         }</Title>
-        <Blurb color="#FFFFFF" style={{ textAlign: 'center' }}>{TranslateString(10000, 'Deposit fees will be used to buyback CORN')}</Blurb>
+		<DepA href="https://docs.farmersonly.farm/tokenomics/deposit-fees" target="_blank" rel="noreferrer">
+        <DepButton size="sm" >Deposit Fees Usage</DepButton>
+		</DepA>
       </Container>
     </StyledHero>
   )
