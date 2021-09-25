@@ -39,6 +39,22 @@ z-index: 2;
   }
 `
 
+const DepA = styled.a`
+  display: inline-block !important;
+  width: 408px;
+  margin-left: auto;
+  margin-right: auto;
+`
+const DepButton = styled(Button)`
+  background-color: #FFFFFF;
+	color: #fb2141;
+	font-size: 22px;
+  &:hover {
+	background-color: #fb2141;
+	color: #FFFFFF;
+  }
+`
+
 const Block = styled.div`
   margin-bottom: 16px;
 `
@@ -136,7 +152,7 @@ const FarmedStakingCard = () => {
           <Label>~${(eggPrice * cakeBalance).toFixed(2)}</Label>
         </Block>
         <Actions>
-          <Button onClick={addWatchJaguarToken} size="sm" style={{ marginBottom: 0 }} mb={2}>
+		<Button onClick={addWatchJaguarToken} size="sm" style={{ marginBottom: 0 }} mb={2}>
             + Add CORN to <img style={{ marginLeft: 8 }} width={16} src="https://jaguarswap.com/images/tokens/metamask.png" alt="metamask logo" />
           </Button>
           {/* {account ? (
@@ -153,6 +169,9 @@ const FarmedStakingCard = () => {
           ) : (
             <UnlockButton fullWidth />
           )} */}
+		  <DepA href="https://app.pangolin.exchange/#/swap?outputCurrency=0xFcA54c64BC44ce2E72d621B6Ed34981e53B66CaE&inputCurrency=0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664" target="_blank" rel="noreferrer">
+        <DepButton mt="8px" fullWidth>Buy CORN</DepButton>
+      </DepA>
         </Actions>
       </CardBody>
     </StyledFarmStakingCard>

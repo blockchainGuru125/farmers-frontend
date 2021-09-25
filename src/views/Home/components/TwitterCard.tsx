@@ -42,7 +42,7 @@ const TwitterCard = () => {
             screenName: 'FarmersOnlyDeFi' // XXXXTWITTER
           }}
           options={{
-            height: '310',
+            height: '364',
             chrome: "noheader, nofooter",
             width: "400",
             theme: isDark ? 'dark' : 'light'
