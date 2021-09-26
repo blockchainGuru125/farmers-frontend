@@ -1,4 +1,5 @@
 import React, { useEffect, Suspense, lazy } from 'react'
+import styled from 'styled-components'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { ResetCSS } from '@pancakeswap-libs/uikit'

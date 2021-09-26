@@ -19,24 +19,6 @@ import Hero from './components/Hero'
 import FarmTabButtons from './components/FarmTabButtons'
 import Divider from './components/Divider'
 
-const RDBadge = styled.a`
-position: fixed;
-right: 0px;
-top: 7px;
-`
-
-const RDLiq = styled.a`
-position: fixed;
-right: 15px;
-top: 110px;
-`
-
-const JSBadge = styled.a`
-position: fixed;
-right: 20px;
-top: 213px;
-`
-
 export interface FarmsProps{
   tokenMode?: boolean
   dividendsMode?: boolean
@@ -140,10 +122,6 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   return (
     <>
-      <RDBadge  target="_blank" rel="noreferrer" href="https://rugdoc.io/project/farmersonly-2/"><img width={250} src="https://rugdoc.io/assets/2021/06/rugdoc-review-badge-with-glow.png" alt="rugdoc badge" /></RDBadge>
-  <RDLiq  target="_blank" rel="noreferrer" href="https://rugdoc.io/project/farmersonly-2/"><img width={217} src="https://farmersonly.farm/images/egg/RugDoc-LiqLock-Badge.png" alt="rugdoc liq locked" /></RDLiq>
-  <JSBadge  target="_blank" rel="noreferrer" href="https://jagosafer.io/farmersonly"><img width={208} src="https://jagosafer.io/flags/greenflag.svg" alt="jago badge" /></JSBadge>
-
     <Hero tokenMode={tokenMode} dividendsMode={dividendsMode}/>
     <Page>
       {/* <Heading as="h1" size="lg" color="primary" mb="50px" style={{ textAlign: 'center' }}>
