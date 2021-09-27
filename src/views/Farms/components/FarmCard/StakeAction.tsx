@@ -32,6 +32,7 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({ stakedBalance, tokenBalan
 
   const rawStakedBalance = getBalanceNumber(stakedBalance, decimal)
   const displayBalance = rawStakedBalance.toLocaleString()
+  const displayLpBalance = rawStakedBalance.toLocaleString('en-US', { style: 'decimal', maximumFractionDigits: 8 })
 
   const [onPresentDeposit] = useModal(<DepositModal max={tokenBalance} onConfirm={onStake} tokenName={tokenName} depositFeeBP={depositFeeBP} />)
   const [onPresentWithdraw] = useModal(
@@ -53,9 +54,19 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({ stakedBalance, tokenBalan
     )
   }
 
+if (rawStakedBalance >= 1)
+{
   return (
     <Flex justifyContent="space-between" alignItems="center">
       <Heading color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>{displayBalance}</Heading>
+      {renderStakingButtons()}
+    </Flex>
+  )
+}
+
+	return (
+    <Flex justifyContent="space-between" alignItems="center">
+      <Heading color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>{displayLpBalance}</Heading>
       {renderStakingButtons()}
     </Flex>
   )
