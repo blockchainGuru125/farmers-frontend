@@ -18,7 +18,6 @@ import FarmCard, { FarmWithStakedValue } from './components/FarmCard/FarmCard'
 import Hero from './components/Hero'
 import FarmTabButtons from './components/FarmTabButtons'
 import Divider from './components/Divider'
-import { totalValueWW } from './components/FarmCard/DetailsSection'
 
 export interface FarmsProps{
   tokenMode?: boolean

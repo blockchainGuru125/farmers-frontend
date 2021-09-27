@@ -5,7 +5,7 @@ import multicall from 'utils/multicall'
 import { getMasterChefAddress } from 'utils/addressHelpers'
 import farmsConfig from 'config/constants/farms'
 import { QuoteToken } from '../../config/constants/types'
-import { totalValueUU, totalValueWW } from '../../views/Farms/components/FarmCard/DetailsSection'
+import { totalValueUU } from '../../views/Farms/components/FarmCard/DetailsSection'
 
 const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
 
