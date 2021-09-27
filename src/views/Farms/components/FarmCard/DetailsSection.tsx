@@ -5,7 +5,7 @@ import { Text, Flex, Link, LinkExternal } from '@pancakeswap-libs/uikit'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { Address } from 'config/constants/types'
 import BigNumber from 'bignumber.js'
-import { usePriceWethWavax } from '../../../../state/hooks'
+import { usePriceWethWavax, usePriceBnbBusd } from '../../../../state/hooks'
 
 export interface ExpandableSectionProps {
   isTokenOnly?: boolean
@@ -55,6 +55,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
 }) => {
   const TranslateString = useI18n()
   const wwPrice = usePriceWethWavax()
+  const bnbPrice = usePriceBnbBusd()
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
 
   let externalLink = isTokenOnly ?
@@ -86,7 +87,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
     : '-'
 	
 	totalValueWAVAXWETH = totalValueFormated
-	? `$${Number(new BigNumber(totalValueFormated).times(wwPrice.times(141000))).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
+	? `$${Number(new BigNumber(totalValueFormated).times(bnbPrice.times(45.20))).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
     : '-'
 
     

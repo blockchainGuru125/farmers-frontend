@@ -82,10 +82,10 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           totalValue = totalValue.times(16.91**3);
         } */
 		if (farm.pid === 8) {
-			totalValue = totalValue.times(215000);
+			totalValue = totalValue.times(bnbPrice.times(39.20));
 		}
 		
-		if (farm.quoteTokenSymbol === QuoteToken.WAVAX) { // CORN-WAVAX e USDC-WAVAX
+		else if (farm.quoteTokenSymbol === QuoteToken.WAVAX) { // CORN-WAVAX e USDC-WAVAX
           totalValue = totalValue.times(61.060365);
         } 
 		

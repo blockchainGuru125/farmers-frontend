@@ -75,10 +75,6 @@ const fetchFarms = async () => {
           tokenPriceVsQuote = new BigNumber(quoteTokenBalanceLP).div(new BigNumber(tokenBalanceLP));
         }
 		
-		if(farmConfig.pid === 8){
-          tokenAmount = totalValueWW;
-		}
-		
         lpTotalInQuoteToken = tokenAmount.times(tokenPriceVsQuote);
       }
       else {
