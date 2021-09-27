@@ -114,7 +114,7 @@ export const useTotalValue = (): BigNumber => {
 
 	  if (farm.pid === 8) {
 		value = value.plus(wwPrice.pow(-1).times(farm.lpTotalInQuoteToken).times(70))
-	  } /*
+	  } 
       else if (farm.pid === 4) {
         value = value.plus(uuPrice.times(farm.lpTotalInQuoteToken))
       }
@@ -129,7 +129,7 @@ export const useTotalValue = (): BigNumber => {
 	  }
       else {
         value = value.plus(farm.lpTotalInQuoteToken); // USDC etc
-      } */
+      } 
 
 
       // value = value.plus(val);
