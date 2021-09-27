@@ -118,7 +118,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
   //  ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
   //  : '-'
 
-  const multipliier = 200 // 200
+  const multipliier = 100 // 200
   
   /* if (farm.pid === 12) {
 	multipliier = 100; // 100
