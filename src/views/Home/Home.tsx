@@ -98,9 +98,9 @@ const Home: React.FC = () => {
   
     <Page>
          <Heading as="h1" size="lg" mb="12px" color="#FFFFFF" >{
-            TranslateString(999, 'Yield Farming starts on Sep 28, 8:00PM UTC')} {/* 'Yield Farming starts on Sep 28, 8:00PM UTC' */}
+            TranslateString(999, 'Yield Farming starts on Sep 28, 8:00PM UTC*')} {/* 'Yield Farming starts on Sep 28, 8:00PM UTC' */}
         </Heading>
-        <Text color="#FFFFFF" >{TranslateString(999, 'But you can already stake your tokens! (start date could be slightly modified to follow AAVE launch on AVAX)')} {/* 'But you can already stake your tokens! (Yield Farming start could be slightly modified due to AAVE launch on AVAX)' */}
+        <Text color="#FFFFFF" >{TranslateString(999, '*Start date could be slightly modified to follow AAVE launch on Avalanche')} {/* 'But you can already stake your tokens! (Yield Farming start could be slightly modified due to AAVE launch on AVAX)' */}
         </Text>
           <Timer />
         {/* <Heading as="h1" size="lg" mb="12px" color="#fb3321" >

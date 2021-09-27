@@ -80,12 +80,12 @@ const farms: FarmConfig[] = [
     lpAddresses: {
       43114: '0x7c05d54fc5cb6e4ad87c6f5db3b807c94bb89c52',
     },
-    tokenSymbol: 'WAVAX',
+    tokenSymbol: 'WETH.e',
     tokenAddresses: {
-      43114: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',
+      43114: '0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB',
     },
-    quoteTokenSymbol: QuoteToken.WETH,
-    quoteTokenAdresses: contracts.weth,
+    quoteTokenSymbol: QuoteToken.WAVAX,
+    quoteTokenAdresses: contracts.wavax,
   },
 
   {
