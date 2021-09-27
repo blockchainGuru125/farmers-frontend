@@ -117,10 +117,10 @@ export const useTotalValue = (): BigNumber => {
         value = value.plus((bnbPrice.times(farm.lpTotalInQuoteToken).times(10**12)));
       } */
 
-	  if (farm.pid === 8) {
-		value = value.plus(wwPrice.pow(-1).times(farm.lpTotalInQuoteToken).times(wuPrice.times(10**12)))
+	  /* if (farm.pid === 8) {
+		value = value.plus(bnbPrice.times(farm.lpTotalInQuoteToken));
 	  } 
-      else if (farm.pid === 4) {
+      else */ if (farm.pid === 4) {
         value = value.plus(uuPrice.times(farm.lpTotalInQuoteToken))
       }
       else if (farm.quoteTokenSymbol === QuoteToken.WAVAX) {
