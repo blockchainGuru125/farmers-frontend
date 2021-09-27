@@ -31,7 +31,7 @@ const GridItem = styled.div`
 `
 
 const Description = styled(Text)`
-  max-width: 320px;
+  max-width: 640px;
   margin-bottom: 28px;
 `
 
