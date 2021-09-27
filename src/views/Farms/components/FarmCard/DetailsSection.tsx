@@ -87,7 +87,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
     : '-'
 	
 	totalValueWAVAXWETH = totalValueFormated
-	? `$${Number(new BigNumber(totalValueFormated).times(bnbPrice.times(45.20))).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
+	? `$${Number(new BigNumber(totalValueFormated).times(wwPrice.pow(-1).times(70))).toLocaleString(undefined, { maximumFractionDigits: 2 })}`
     : '-'
 
     
