@@ -9,7 +9,7 @@ import { Image, Heading } from '@pancakeswap-libs/uikit'
 import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
-import { useFarms, usePriceBnbBusd, usePriceCakeBusd} from 'state/hooks'
+import { useFarms, usePriceBnbBusd, usePriceCakeBusd, usePriceWethWavax } from 'state/hooks'
 import useRefresh from 'hooks/useRefresh'
 import { fetchFarmUserDataAsync } from 'state/actions'
 import { QuoteToken } from 'config/constants/types'
@@ -18,6 +18,7 @@ import FarmCard, { FarmWithStakedValue } from './components/FarmCard/FarmCard'
 import Hero from './components/Hero'
 import FarmTabButtons from './components/FarmTabButtons'
 import Divider from './components/Divider'
+import { totalValueWW } from './components/FarmCard/DetailsSection'
 
 export interface FarmsProps{
   tokenMode?: boolean
@@ -30,10 +31,12 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const TranslateString = useI18n()
   const farmsLP = useFarms()
   const cakePrice = usePriceCakeBusd()
+  const wwPrice = usePriceWethWavax()
   const bnbPrice = usePriceBnbBusd()
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
   const {tokenMode} = farmsProps;
   const {dividendsMode} = farmsProps;
+
 
   const dispatch = useDispatch()
   const { fastRefresh } = useRefresh()
@@ -51,6 +54,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const stakedOnlyFarms = activeFarms.filter(
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
   )
+  
+    
 
   // /!\ This function will be removed soon
   // This function compute the APY for each farm and will be replaced when we have a reliable API
@@ -76,6 +81,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         /* if (farm.pid === 13) {
           totalValue = totalValue.times(16.91**3);
         } */
+		if (farm.pid === 8) {
+			totalValue = totalValue.times(215000);
+		}
 		
 		if (farm.quoteTokenSymbol === QuoteToken.WAVAX) { // CORN-WAVAX e USDC-WAVAX
           totalValue = totalValue.times(61.060365);

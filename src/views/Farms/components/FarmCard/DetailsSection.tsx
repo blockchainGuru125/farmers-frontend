@@ -5,6 +5,7 @@ import { Text, Flex, Link, LinkExternal } from '@pancakeswap-libs/uikit'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { Address } from 'config/constants/types'
 import BigNumber from 'bignumber.js'
+import { usePriceWethWavax } from '../../../../state/hooks'
 
 export interface ExpandableSectionProps {
   isTokenOnly?: boolean
@@ -39,6 +40,8 @@ const StyledLinkExternal = styled(LinkExternal)`
 
 let totalValueUSDCUSDT
 
+let totalValueWAVAXWETH
+
 const DetailsSection: React.FC<ExpandableSectionProps> = ({
   isTokenOnly,
   bscScanAddress,
@@ -51,6 +54,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   otherExchange
 }) => {
   const TranslateString = useI18n()
+  const wwPrice = usePriceWethWavax()
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
 
   let externalLink = isTokenOnly ?
@@ -79,6 +83,10 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
 
     const totalValueCorn = totalValueFormated
     ? `$${Number(totalValueFormated).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
+    : '-'
+	
+	totalValueWAVAXWETH = totalValueFormated
+	? `$${Number(new BigNumber(totalValueFormated).times(wwPrice.times(141000))).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
     : '-'
 
     
@@ -166,6 +174,33 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   )
 } 
 
+if (lpLabel === 'WAVAX-WETH.e LP') { // XXXX
+    
+  return (
+    <Wrapper>
+      <Flex justifyContent="space-between">
+        <Text color="#FFFFFF">{TranslateString(316, 'Stake')}:</Text>
+        <StyledLinkExternal href={
+          externalLink
+        }>
+          {lpLabel}
+        </StyledLinkExternal>
+      </Flex>
+      {!removed && (
+        <Flex justifyContent="space-between">
+          <Text color="#FFFFFF">{TranslateString(23, 'Total Liquidity')}:</Text>
+          <Text color="#FFFFFF">{totalValueWAVAXWETH}</Text>
+        </Flex>
+      )}
+      <Flex justifyContent="flex-start">
+        <Link external href={bscScanAddress} bold={false}>
+          {TranslateString(356, 'View on Avax Explorer')}
+        </Link>
+      </Flex>
+    </Wrapper>
+  )
+} 
+
   return (
     <Wrapper>
       <Flex justifyContent="space-between">
@@ -193,5 +228,6 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
 }
 
 export const totalValueUU = totalValueUSDCUSDT
+export const totalValueWW = totalValueWAVAXWETH
 
 export default DetailsSection

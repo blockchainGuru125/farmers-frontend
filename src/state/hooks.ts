@@ -87,12 +87,19 @@ export const usePriceUsdcUsdt = (): BigNumber => {
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }
 
+export const usePriceWethWavax = (): BigNumber => {
+  const pid = 8; // CORN-USDC LP : DEFAULT 11
+  const farm = useFarmFromPid(pid);
+  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
+}
+
 
 export const useTotalValue = (): BigNumber => {
   const farms = useFarms();
   const bnbPrice = usePriceBnbBusd();
   const cakePrice = usePriceCakeBusd();
   const uuPrice = usePriceUsdcUsdt();
+  const wwPrice = usePriceWethWavax();
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
@@ -103,8 +110,10 @@ export const useTotalValue = (): BigNumber => {
         value = value.plus((bnbPrice.times(farm.lpTotalInQuoteToken).times(10**12)));
       } */
 
-
-      if (farm.pid === 4) {
+	  if (farm.pid === 8) {
+		value = value.plus(wwPrice.times(farm.lpTotalInQuoteToken).times(141000))
+	  } 
+      else if (farm.pid === 4) {
         value = value.plus(uuPrice.times(farm.lpTotalInQuoteToken))
       }
       else if (farm.quoteTokenSymbol === QuoteToken.WAVAX) {
@@ -118,7 +127,7 @@ export const useTotalValue = (): BigNumber => {
 	  }
       else {
         value = value.plus(farm.lpTotalInQuoteToken); // USDC etc
-      }
+      } 
 
 
       // value = value.plus(val);
