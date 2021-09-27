@@ -130,7 +130,7 @@ export const useTotalValue = (): BigNumber => {
         value = value.plus(cakePrice.times(farm.lpTotalInQuoteToken));
       } 
 	  else if (farm.pid === 9) { // USDC.e-USDT.e
-		value = value.plus(bnbPrice.times(farm.lpTotalInQuoteToken));
+		value = value.plus(uuPrice.times(farm.lpTotalInQuoteToken).times(10**12));
 	  }
       else {
         value = value.plus(farm.lpTotalInQuoteToken); // USDC etc
