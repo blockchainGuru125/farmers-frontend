@@ -8,6 +8,7 @@ import { provider } from 'web3-core'
 import useI18n from 'hooks/useI18n'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
 import { QuoteToken } from 'config/constants/types'
+import { useFarmUser } from 'state/hooks'
 import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
@@ -132,6 +133,24 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
   })
 
   const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, risk } = farm
+  
+  const { lockup, stakedBalance } = useFarmUser(farm.pid)
+  
+  const ITO = farm.isTokenOnly
+  const canHarvest = lockup.isEqualTo(0)
+  const harvestBlank = stakedBalance.isEqualTo(0)
+  
+  const harvestTime = new Date(lockup.toNumber() * 1000).toISOString().substr(11, 8);
+  let standardHarvest
+  
+  if (farm.tokenSymbol === "CORN")
+  {
+	  standardHarvest = new Date(1800 * 1000).toISOString().substr(11, 8);
+  }
+  else {
+	  standardHarvest = new Date(7200 * 1000).toISOString().substr(11, 8);
+  }
+  
 
   if (risk !== 0) {
 
@@ -172,6 +191,15 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
       <Flex justifyContent='space-between'>
         <Text color="#FFFFFF">{TranslateString(318, 'Earn')}:</Text>
         <Text color="#FFFFFF" bold>{earnLabel}</Text>
+      </Flex>
+	  <Flex justifyContent='space-between'>
+        <Text mt="3px" color="#FFFFFF">{TranslateString(999, 'Harvest Lockup')}:</Text>
+		{!harvestBlank ?
+        <Text mt="3px" color="#FFFFFF" bold>{harvestTime}</Text>
+		:
+
+			<Text mt="3px" color="#FFFFFF" bold>{standardHarvest}</Text>
+		}
       </Flex>
       <Flex justifyContent='space-between'>
         <Text color="#FFFFFF" style={{ fontSize: '24px' }}>{TranslateString(10001, 'Deposit Fee')}:</Text>

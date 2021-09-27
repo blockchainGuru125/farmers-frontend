@@ -35,7 +35,18 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid, decimal}
   const canHarvest = lockup.isEqualTo(0)
   const harvestBlank = stakedBalance.isEqualTo(0)
   
+  
+  
   const harvestTime = new Date(lockup.toNumber() * 1000).toISOString().substr(11, 8);
+  
+  let harvestHelper 
+  if (harvestBlank) {
+	  harvestHelper = "Harvest"
+  }
+  else 
+  {
+	  harvestHelper = harvestTime
+  }
 
   return (
     <Flex mb='8px' justifyContent='space-between' alignItems='center'>
@@ -64,8 +75,8 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid, decimal}
             setPendingTx(false)
           }}
         >
-          {canHarvest ?
-		  TranslateString(999, 'Harvest')
+          {canHarvest || harvestBlank ?
+		  harvestHelper
 		  :
 		  harvestTime
 		  }
