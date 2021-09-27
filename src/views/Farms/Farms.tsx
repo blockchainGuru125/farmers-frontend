@@ -24,13 +24,15 @@ export interface FarmsProps{
   dividendsMode?: boolean
 }
 
+let wPrice
+
 
 const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const { path } = useRouteMatch()
   const TranslateString = useI18n()
   const farmsLP = useFarms()
   const cakePrice = usePriceCakeBusd()
-  const wwPrice = usePriceWethWavax()
+  wPrice = usePriceWethWavax()
   const bnbPrice = usePriceBnbBusd()
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
   const {tokenMode} = farmsProps;
@@ -81,7 +83,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           totalValue = totalValue.times(16.91**3);
         } */
 		if (farm.pid === 8) {
-			totalValue = totalValue.times(wwPrice.pow(-1).times(60));
+			totalValue = totalValue.times(wPrice.pow(-1).times(60));
 		}
 		
 		else if (farm.quoteTokenSymbol === QuoteToken.WAVAX) { // CORN-WAVAX e USDC-WAVAX
@@ -122,7 +124,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         />
       ))
     },
-    [account, cakePrice, ethereum, bnbPrice, wwPrice],
+    [account, cakePrice, ethereum, bnbPrice],
   )
 
 
@@ -161,5 +163,6 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
 
 }
+
 
 export default Farms
