@@ -1932,9 +1932,9 @@
     eslint-plugin-react "^7.21.5"
     eslint-plugin-react-hooks "^4.0.0"
 
-"@pancakeswap-libs/uikit@farmersonlydefi/farmers-uikit-v2":
+"@pancakeswap-libs/uikit@farmersonlydefi/farmers-uikit-v3":
   version "0.10.2"
-  resolved "https://codeload.github.com/farmersonlydefi/farmers-uikit-v2/tar.gz/e225a285800554f4cda92e1e8eb2249d19584d3b"
+  resolved "https://codeload.github.com/farmersonlydefi/farmers-uikit-v3/tar.gz/3f8b7b5073b56807127f9f518af66d2228124b3a"
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"
