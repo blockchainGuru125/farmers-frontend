@@ -40,7 +40,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid, decimal}
   const harvestTime = new Date(lockup.toNumber() * 1000).toISOString().substr(11, 8);
   
   let harvestHelper 
-  if (harvestBlank) {
+  if (canHarvest || harvestBlank) {
 	  harvestHelper = "Harvest"
   }
   else 
