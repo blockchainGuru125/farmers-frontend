@@ -145,10 +145,10 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
   
   if (farm.tokenSymbol === "CORN")
   {
-	  standardHarvest = new Date(1800 * 1000).toISOString().substr(11, 8);
+	  standardHarvest = "30 minutes"
   }
   else {
-	  standardHarvest = new Date(7200 * 1000).toISOString().substr(11, 8);
+	  standardHarvest = "2 hours"
   }
   
 
