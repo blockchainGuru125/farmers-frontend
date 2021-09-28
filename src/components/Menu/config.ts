@@ -130,7 +130,7 @@ const config: MenuEntry[] = [
   {
      label: 'Report a Bug', // XXXXSOON
      icon: 'TelegramIcon',
-     href: 'https://t.me/FarmersOnlyDev',
+     href: 'https://t.me/FarmersOnlyDev2',
   },
 ]
 

@@ -114,7 +114,7 @@ return (
           {TranslateString(999, 'Staked')}
         </Text> */}
       </Flex>
-       <a href="https://t.me/FarmersOnlyDev" target="_blank" rel="noreferrer">
+       <a href="https://t.me/FarmersOnlyDev2" target="_blank" rel="noreferrer">
         <Button mt="8px" fullWidth >Apply now</Button>
       </a>
     </Action>

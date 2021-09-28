@@ -97,6 +97,9 @@ const Home: React.FC = () => {
 <>
   
     <Page>
+        <Heading as="h1" size="xl" mb="30px" color="#FF0000" >{
+            TranslateString(999, 'TELEGRAM GROUP MASS REPORTED, GET IN THE NEW ONE: @FarmersOnly2')} {/* 'Yield Farming starts on Sep 28, 8:00PM UTC' */}
+        </Heading>
          <Heading as="h1" size="lg" mb="12px" color="#FFFFFF" >{
             TranslateString(999, 'Yield Farming starts on Sep 29, 8:00PM UTC*')} {/* 'Yield Farming starts on Sep 28, 8:00PM UTC' */}
         </Heading>

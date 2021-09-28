@@ -151,7 +151,7 @@ const FarmedStakingCard = () => {
       </Flex>
         
         <Actions>
-          <a href="https://t.me/FarmersOnlyDev" target="_blank" rel="noreferrer">
+          <a href="https://t.me/FarmersOnlyDev2" target="_blank" rel="noreferrer">
         <Button id="harvest-all"  fullWidth >Apply now</Button>
       </a>
         </Actions>
