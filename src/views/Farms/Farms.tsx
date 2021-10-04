@@ -108,7 +108,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         }
 
         if(totalValue.comparedTo(0) > 0){
-          apy = apy.div(totalValue.div(2));
+          apy = apy.div(totalValue.div(4)); // XXXXX APR MODIFIER
         }
 
         return { ...farm, apy }

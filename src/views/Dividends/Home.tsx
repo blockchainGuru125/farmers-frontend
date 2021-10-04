@@ -74,17 +74,14 @@ StyledHero = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: 630px;
-  padding-bottom: 157px;
+  padding-bottom: 42px;
   padding-top: 44px;
-  margin-bottom: -441px;
+  margin-bottom: -326px;
 `
 
   return (
     <StyledHero>
       <Container>
-              <Heading as="h1" size="xl" mb="30px" color="#FF0000" >{
-            TranslateString(999, 'TELEGRAM GROUP MASS REPORTED, GET IN THE NEW ONE: @FarmersOnly2')} {/* 'Yield Farming starts on Sep 28, 8:00PM UTC' */}
-        </Heading>
         {/* <Heading as="h1" size="lg" mb="12px" color="#fb3321" >
           {TranslateString(999, 'Yield Farming started!')}
         </Heading>

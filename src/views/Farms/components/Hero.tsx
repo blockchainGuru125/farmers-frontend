@@ -43,21 +43,18 @@ const Hero = ({tokenMode,dividendsMode}) => {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 750px;
-  padding-bottom: 397px;
+  padding-bottom: 280px;
   padding-top: 32px;
-  margin-bottom: -382px;
+  margin-bottom: -262px;
 `
 
   return (
     <StyledHero>
       <Container>
-              <Heading as="h1" size="xl" mb="30px" color="#FF0000" >{
-            TranslateString(999, 'TELEGRAM GROUP MASS REPORTED, GET IN THE NEW ONE: @FarmersOnly2')} {/* 'Yield Farming starts on Sep 28, 8:00PM UTC' */}
-        </Heading>
         <Heading as="h1" size="lg" mb="12px" color="#FFFFFF" >{
-            TranslateString(999, 'Yield Farming starts on Sep 29, 8:00PM UTC*')} {/* 'Yield Farming starts on Sep 28, 8:00PM UTC' */}
+            TranslateString(999, 'Yield Farming starts on Oct 4, 8:00PM UTC*')} {/* 'Yield Farming starts on Sep 28, 8:00PM UTC' */}
         </Heading>
-        <Text color="#FFFFFF" >{TranslateString(999, '*Start date could be slightly modified to align with AAVE launch on Avalanche (check docs to see why)')} {/* 'But you can already stake your tokens! (Yield Farming start could be slightly modified due to AAVE launch on AVAX)' */}
+        <Text color="#FFFFFF" >{TranslateString(999, '*Start date would be slightly modified to align with AAVE launch on Avalanche (check our docs to see why)')} {/* 'But you can already stake your tokens! (Yield Farming start could be slightly modified due to AAVE launch on AVAX)' */}
         </Text>
       <Timer />
         {/* <Heading as="h1" size="lg" mb="12px" color="#fb3321" >

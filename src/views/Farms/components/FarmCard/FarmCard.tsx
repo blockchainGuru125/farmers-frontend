@@ -134,7 +134,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
 
   const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, risk } = farm
   
-  const { lockup, stakedBalance } = useFarmUser(farm.pid)
+  /* const { lockup, stakedBalance } = useFarmUser(farm.pid)
   
   const ITO = farm.isTokenOnly
   const canHarvest = lockup.isEqualTo(0)
@@ -149,7 +149,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
   }
   else {
 	  standardHarvest = "2 hours"
-  }
+  } */
   
 
   if (risk !== 0) {
@@ -192,7 +192,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
         <Text color="#FFFFFF">{TranslateString(318, 'Earn')}:</Text>
         <Text color="#FFFFFF" bold>{earnLabel}</Text>
       </Flex>
-	  <Flex justifyContent='space-between'>
+	  {/* <Flex justifyContent='space-between'>
         <Text mt="3px" color="#FFFFFF">{TranslateString(999, 'Harvest Lockup')}:</Text>
 		{!harvestBlank ?
         <Text mt="3px" color="#FFFFFF" bold>{harvestTime}</Text>
@@ -200,7 +200,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
 
 			<Text mt="3px" color="#FFFFFF" bold>{standardHarvest}</Text>
 		}
-      </Flex>
+      </Flex> */}
       <Flex justifyContent='space-between'>
         <Text color="#FFFFFF" style={{ fontSize: '24px' }}>{TranslateString(10001, 'Deposit Fee')}:</Text>
         <Text color="#FFFFFF" bold style={{ fontSize: '24px' }}>{(farm.depositFeeBP / 100)}%</Text>

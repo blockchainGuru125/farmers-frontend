@@ -26,13 +26,13 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid, decimal}
   const [pendingTx, setPendingTx] = useState(false)
   const { onReward } = useHarvest(pid)
   const { onStake } = useStake(pid, decimal)
-  const { lockup, stakedBalance } = useFarmUser(pid)
+  const { stakedBalance } = useFarmUser(pid)
 
   const rawEarningsBalance = getBalanceNumber(earnings, decimal)
   const displayBalance = rawEarningsBalance.toLocaleString()
   
   
-  const canHarvest = lockup.isEqualTo(0)
+  /* const canHarvest = lockup.isEqualTo(0)
   const harvestBlank = stakedBalance.isEqualTo(0)
   
   
@@ -46,7 +46,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid, decimal}
   else 
   {
 	  harvestHelper = harvestTime
-  }
+  } */
 
   return (
     <Flex mb='8px' justifyContent='space-between' alignItems='center'>
@@ -54,7 +54,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid, decimal}
       <BalanceAndCompound>
         {pid === 10 ?  // COMPOUND PID PIDCOMPOUND COMPOUNDPID
           <Button
-            disabled={rawEarningsBalance === 0 || pendingTx || !canHarvest}
+            disabled={rawEarningsBalance === 0 || pendingTx} // || !canHarvest
             size='sm'
             variant='secondary'
             marginBottom='15px'
@@ -68,18 +68,19 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid, decimal}
           </Button>
           : null}
         <Button
-          disabled={rawEarningsBalance === 0 || pendingTx || !canHarvest}
+          disabled={rawEarningsBalance === 0 || pendingTx} // || !canHarvest
           onClick={async () => {
             setPendingTx(true)
             await onReward()
             setPendingTx(false)
           }}
         >
-          {canHarvest || harvestBlank ?
+		{/* {canHarvest || harvestBlank ?
 		  harvestHelper
 		  :
 		  harvestTime
-		  }
+		} */ }
+		  Harvest
         </Button>
       </BalanceAndCompound>
     </Flex>

@@ -63,7 +63,7 @@ const Subtitle = styled.div<{ color: string }>`
 `
 const Title = styled.div<{ color: string }>`
   font-size: 30px;
-  line-height: 23px;
+  line-height: 50px;
   font-weight: 600;
   color: ${({ color }) => color};
 `
